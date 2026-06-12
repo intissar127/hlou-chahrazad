@@ -1,15 +1,15 @@
 "use client";
 import { useState } from "react";
-import { X, Mail, Phone, MapPin } from "lucide-react"; // Importe les icônes de contact
+import { X, Mail, MapPin } from "lucide-react"; // Importe les icônes de contact
 import HeroSection from "@/components/layout/home/ui/HeroSection";
 import FeaturesBar from "@/components/layout/home/ui/FeaturesBar";
 import BestSellers from "@/components/layout/home/ui/BestSellers";
 import CategorySidebar from "@/components/layout/home/ui/CategorySidebar";
 import PromoSection from "@/components/layout/home/ui/PromoSection";
 import Reviews from "@/components/layout/home/ui/Reviews";
-import WhatsAppButton from "@/components/layout/home/ui/WhatsAppButton";
 import Footer from "@/components/layout/home/ui/Footer";
 import SidebarTrigger from "@/components/layout/home/ui/SidebarTrigger"; // Importe ton nouveau bouton
+import ChatWidget from "@/components/layout/home/ui/chatWidget";
 
 export default function HomePage() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -89,7 +89,7 @@ export default function HomePage() {
         <PromoSection />
         <Reviews />
         <Footer />
-        <WhatsAppButton />
+        <ChatWidget />
       </main>
     </div>
   );

@@ -1,5 +1,7 @@
 // src/app/layout.tsx
+import { CartProvider } from "@/context/CartContext";
 import "./globals.css"; // Assure-toi d'importer tes styles ici
+import { FavoritesProvider } from "@/context/FavoritesContext";
 
 export const metadata = {
   title: "Hlou Chahrazad",
@@ -14,8 +16,9 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body>
-        {/* C'est ici que Next.js injectera tes pages et sous-layouts */}
-        {children}
+        <CartProvider>
+          <FavoritesProvider>{children}</FavoritesProvider>
+        </CartProvider>
       </body>
     </html>
   );

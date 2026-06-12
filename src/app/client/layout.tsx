@@ -2,13 +2,16 @@
 // import Navbar from "@/components/layout/Navbar";
 // import Footer from "@/components/layout/Footer";
 
+// import Footer from "@/components/layout/home/ui/Footer";
 import Navbar from "@/components/layout/home/ui/Navbar";
-import WhatsAppButton from "@/components/layout/home/ui/WhatsAppButton";
+
+// import { CartProvider } from "@/context/CartContext";
 
 // src/app/(client)/layout.tsx
 
 // import Footer from "@/components/layout/Footer";
 
+// src/app/(client)/layout.tsx
 export default function ClientLayout({
   children,
 }: {
@@ -17,9 +20,8 @@ export default function ClientLayout({
   return (
     <>
       <Navbar />
-      {children} {/* C'est ici que s'affichera ton HomePage */}
-      <WhatsAppButton />
-      {/* <Footer /> */}
+      {children}
+      {/* C'est ici que s'affichera ta page panier, UNE SEULE FOIS */}
     </>
   );
 }
