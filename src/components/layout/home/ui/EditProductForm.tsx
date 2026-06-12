@@ -35,7 +35,7 @@ export default function EditProductForm({
     const result = await updateProduct(product.id, formData);
 
     if (result && "error" in result) {
-      setError(result.error);
+      setError(result.error ?? "Une erreur est survenue.");
       setLoading(false);
     } else {
       // Redirection et rafraîchissement des données du dashboard global

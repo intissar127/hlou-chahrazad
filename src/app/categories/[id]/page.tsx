@@ -128,12 +128,16 @@ export default async function CategoryPage({
                 Si tu imposes une largeur fixe ou un max-w sur tes cartes directement, 
                 'justify-items-center' s'assurera qu'elles restent parfaitement centrées dans leur colonne.
               */
-              <div className="grid grid-cols-3 sm:grid-cols-2 xl:grid-cols-3 gap-8 justify-items-center">
+              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8 justify-items-center">
                 {category.products.map((product) => {
                   // ✅ Évite le 'as any' : cast explicite et respectueux d'ESLint
                   const cleanProduct = {
                     ...product,
                     price: Number(product.price),
+                    image: product.imageMain,
+                    oldPrice: product.oldPrice
+                      ? Number(product.oldPrice)
+                      : null,
                   } as Product;
 
                   return (

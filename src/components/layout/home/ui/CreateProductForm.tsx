@@ -31,7 +31,7 @@ export default function CreateProductForm({
     const result = await createProduct(formData);
 
     if (result && "error" in result) {
-      setError(result.error);
+      setError(result.error ?? null);
       setLoading(false);
     } else {
       // Succès : Redirection vers le dashboard et mise à jour des listes
