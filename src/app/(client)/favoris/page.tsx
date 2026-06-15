@@ -63,7 +63,7 @@ export default function FavoritesPage() {
                     {item.nameFr || item.nameAr}
                   </h3>
                   <p className="text-stone-500 font-serif mt-1 font-medium">
-                    {item.price.toFixed(3)} DT
+                    {Number(item.price).toFixed(3)} DT
                   </p>
                 </div>
 

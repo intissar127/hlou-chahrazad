@@ -16,6 +16,10 @@ interface CheckoutData {
 export async function createOrder(data: CheckoutData) {
   try {
     const user = await getCurrentUser(); // null si invité
+    // 🔐 Barrière de sécurité : Si pas de session, on rejette l'action
+    if (!user) {
+      throw new Error("Vous devez être connecté pour passer une commande.");
+    }
 
     const order = await prisma.order.create({
       data: {

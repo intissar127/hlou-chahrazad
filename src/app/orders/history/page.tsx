@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { Calendar, Package, ShoppingBag } from "lucide-react";
+import LogoutButton from "@/components/layout/home/ui/LogoutButton"; // 👈 Importation du bouton client
 
 const statusConfig = {
   PENDING: {
@@ -67,8 +68,13 @@ export default async function OrdersHistoryPage() {
               chez Hlou Chahrazad.
             </p>
           </div>
-          <div className="mt-4 md:mt-0 bg-stone-900 text-white text-xs font-bold uppercase tracking-widest px-4 py-2.5 rounded-xl shadow-sm w-fit">
-            {orders.length} {orders.length > 1 ? "Commandes" : "Commande"}
+
+          {/* Section d'actions alignée à droite */}
+          <div className="mt-4 md:mt-0 flex items-center gap-3 w-fit">
+            <div className="bg-stone-900 text-white text-xs font-bold uppercase tracking-widest px-4 py-2.5 rounded-xl shadow-sm">
+              {orders.length} {orders.length > 1 ? "Commandes" : "Commande"}
+            </div>
+            <LogoutButton /> {/* 👈 Ajout du bouton ici */}
           </div>
         </div>
 

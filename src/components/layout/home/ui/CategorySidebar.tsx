@@ -46,7 +46,11 @@ export default function CategorySidebar() {
           <ul className="space-y-2">
             {categories.map((cat) => (
               // eslint-disable-next-line react/jsx-key
-              <Link href={`/categories/${cat.id}`} className="group block">
+              <Link
+                key={cat.id}
+                href={`/categories/${cat.id}`}
+                className="group block"
+              >
                 <div className="flex items-center justify-between w-full py-2 text-sm text-stone-500 hover:text-gold-600 transition-colors">
                   <span className="flex items-center gap-2">
                     <ChevronRight

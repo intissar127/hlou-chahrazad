@@ -51,7 +51,7 @@ export default function BestSellers() {
               <div key={product.id} className="group cursor-pointer">
                 <div className="relative aspect-[4/5] overflow-hidden bg-stone-100 rounded-sm mb-6">
                   <Image
-                    src={product.image}
+                    src={product.imageMain}
                     alt={product.nameFr}
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-110"

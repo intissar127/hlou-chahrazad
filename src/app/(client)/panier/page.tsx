@@ -44,7 +44,7 @@ export default function CartPage() {
               >
                 <div className="relative w-24 h-24 rounded-xl overflow-hidden bg-stone-100 shrink-0">
                   <Image
-                    src={item.image}
+                    src={item.imageMain}
                     alt={item.nameFr}
                     fill
                     className="object-cover"

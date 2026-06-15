@@ -16,7 +16,7 @@ export async function registerUser(formData: FormData) {
       return { error: "Cet email est déjà utilisé par un autre compte." };
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10); // ✅ hashage
+    const hashedPassword = await bcrypt.hash(password, 10); // hashage
 
     await prisma.user.create({
       data: { name, email, password: hashedPassword },
@@ -46,7 +46,7 @@ export async function loginUser(formData: FormData) {
       return { error: "Identifiants incorrects." };
     }
 
-    // ✅ Crée une session cookie (httpOnly, sécurisée)
+    //  Crée une session cookie (httpOnly, sécurisée)
     const cookieStore = await cookies();
     cookieStore.set("user_session_id", user.id, {
       httpOnly: true,
@@ -74,24 +74,24 @@ export async function loginAdmin(formData: FormData) {
   try {
     const user = await prisma.user.findUnique({ where: { email } });
 
-    // 🛡️ Étape 1 : L'utilisateur existe-t-il ?
+    //  Étape 1 : L'utilisateur existe-t-il ?
     if (!user) {
       return { error: "Identifiants incorrects." };
     }
 
-    // 🛡️ Étape 2 : Le mot de passe correspond-il (comparaison hashée) ?
+    //  Étape 2 : Le mot de passe correspond-il (comparaison hashée) ?
     const isValid = await bcrypt.compare(password, user.password);
     if (!isValid) {
       return { error: "Identifiants incorrects." };
     }
 
-    // 🛡️ Étape 3 (AUTORISATION) : Est-il vraiment Admin dans ta base de données ?
+    //  Étape 3 (AUTORISATION) : Est-il vraiment Admin dans ta base de données ?
     // Vérifie que ta colonne ou ton enum s'appelle bien "ADMIN" (en majuscules ou selon ton schéma Prisma)
     if (user.role !== "ADMIN") {
       return { error: "Accès refusé. Vous n'avez pas les droits d'administration." };
     }
 
-    // ✅ Crée la session cookie admin sécurisée si tout est OK
+    //  Crée la session cookie admin sécurisée si tout est OK
     const cookieStore = await cookies();
     cookieStore.set("user_session_id", String(user.id), {
       httpOnly: true,

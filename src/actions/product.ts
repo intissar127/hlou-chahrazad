@@ -4,7 +4,7 @@ import { prisma } from "@/lib/prisma";
 import { getCurrentUser } from "@/lib/session";
 import { revalidatePath } from "next/cache";
 
-// 🔐 Fonction interne pour valider les droits d'administration
+//  Fonction interne pour valider les droits d'administration
 async function checkAdminAuth() {
   const user = await getCurrentUser();
   // On vérifie que la session existe et contient le rôle ADMIN
